@@ -24,7 +24,16 @@ header>img {
   color: rgb(23, 114, 167)
 }
 
-.quiz {
+.quiz {}
+
+.enter {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10%;
+  border-radius: 10px;
+}
+
+.main {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -41,23 +50,32 @@ header>img {
   padding: 5px;
 }
 
-.answer {
-  list-style-type: none;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  margin-right: 20px;
-}
-
 .answer-select {
   font-size: 120%;
 }
 
-.answer-select {
-  width: 100%;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd5kHU2TSXPSNE6--Gm4VbYPDtYYn4CjiurKoSBVZVNFqodncmjg);
+input:checked {
+  border: 8px solid yellow;
+}
+
+.answerChoice {
+  display: flex;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background-color: gray;
   color: white;
   text-shadow: 2px 2px 5px black;
   font-weight: bold;
+}
+
+.answerChoice:hover {
+  background-image: url(https://static.evo.com/assetimages/features/k2-snowboard/2016/k2-wh4-core.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 400px) {
@@ -97,7 +115,7 @@ header>img {
   }
 
   /* background color set only for responsive dev awareness */
-  .quiz {
+  .main {
     width: 60%;
   }
 
@@ -118,7 +136,7 @@ header>img {
   }
 
   /* background color set only for responsive dev awareness */
-  .quiz {
+  .main {
     width: 75%;
   }
 

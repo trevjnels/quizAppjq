@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>repl.it</title>
+  <title>PowHound Quiz</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -17,41 +19,24 @@
     </span>
 
     <span class="progress">
-      <h2 class="score"><span>Score:</span><span class="currentScore"> 4</span></h2>
-      <h2 class="questionTrack"><span>Question:</span><span class="currentQuestion"> 5/8</span></h2>
       <span>
   </header>
 
-  <div class="quiz">
-    <legend>
-      <h2 class="question">
-        Who is the greatest skier in the world and is famous for making an entire ski video without snow?
-      </h2>
-    </legend>
-    <form class="answers">
-      <ul>
-        <li class=" answer answer1">
-          <button class="answer-select" type="submit" for="using answer 1">Candide Thovex</button>
-        </li>
-        <li class="answer answer2">
-          <button class="answer-select" type="submit" for="using answer 2">Travice Rice</button>
-        </li>
-        <li class="answer answer3">
-          <button class="answer-select" type="submit" for="using answer 3">Angel Collinson</button>
-        </li>
-        <li class="answer answer4">
-          <button class="answer-select" type="submit" for="using answer 4">Tom Jones</button>
-        </li>
-      </ul>
-    </form>
+  <div class="main">
+    <span class="quiz"></span>
+    <span class="enter">
+      <button type="submit" for="begining the quiz">
+        <h1>Begin the quiz!</h1>
+      </button>
+    </span>
   </div>
 
   <div class="startover"><a href="index.html"><button for="start new quiz">Start New Quiz</button></a></div>
 
 
 
-
-  <script src="script.js"></script>
+  <script language="JavaScript" type="text/javascript" src=store.js></script>
+  <script language="JavaScript" type="text/javascript" src=index.js></script>
 </body>
 
 </html>
