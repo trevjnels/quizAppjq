@@ -24,10 +24,10 @@ let quizBuilder = function(database) {
 var quiz = quizBuilder(STORE);
 
 $(".begin-button").on("click", function(ev) {
+  $(".title > p").hide();
   renderQuestion();
-  renderProgress();
+  renderProgress(currentScore, currentQuestion);
   $(".begin-button").hide();
-  $(".startover").show();
 });
 
 $("body").on("submit", ".the-form", function(ev) {
@@ -43,6 +43,7 @@ $("body").on("submit", ".the-form", function(ev) {
     currentQuestion++;
   }
   if (currentQuestion === 5) {
+    renderProgress(currentScore, currentQuestion);
     finalScreen(currentScore);
   } else {
     renderQuestion();
@@ -76,16 +77,17 @@ let backgroundIncorrect = function() {
   $("body").css("background-repeat", "no-repeat");
 };
 let finalScreen = function(currentScore) {
+  $(".title > p").show();
+
   $(".quiz-box").html(
-    `<h1>Your final results are:<h1><div><h2>Score: ${(currentScore / 5) *
+    `<h1 class="white">Your final results are:<h1><div><h2 class="white">Score: ${(currentScore /
+      5) *
       100}%</h2></div>`
   );
-  $("body").css(
-    "background-image",
-    `url(http://www.snowcrystals.com/branching/i0113a331A.jpg)`
+  $("body").append(
+    '<img class="bottom" alt="goofy picture of a skier wearing a halloween costume that makes it look like he is getting a piggy back ride, but the fella giving him the piggyback is just his pants." src="https://i.ebayimg.com/images/i/311974668454-0-1/s-l1000.jpg"></img>'
   );
-  $("body").css("background-size", "cover");
-  $("body").css("background-repeat", "no-repeat");
+  $(".startover").show();
 };
 
 let renderProgress = function(score, stage) {
@@ -93,17 +95,24 @@ let renderProgress = function(score, stage) {
     score = "0";
   }
   if (!stage) {
-    stage = "0";
   }
-  $(".progress")
-    .html(`   <h2 class="score"><span>Score:</span><span class="currentScore"> ${score}</span></h2>
-      <h2 class="questionTrack"><span>Question:</span><span class="currentQuestion">  ${stage}/5</span></h2>`);
+  if (stage === 5) {
+    $(".progress")
+      .html(`   <h2 class=" white score"><span>Score:</span><span class="currentScore"> ${score}</span></h2>
+      `);
+  } else {
+    $(".progress")
+      .html(`   <h2 class="white score"><span>Score:</span><span class="currentScore"> ${score}</span></h2>
+      <h2 class=" white questionTrack"><span>Question:</span><span class="currentQuestion">  ${stage +
+        1}/5</span></h2>`);
+  }
 };
 let renderQuestion = function() {
   let question = quiz[currentQuestion];
 
   $(".quiz-box").html(
-    `<h2 class="question">
+    `<div class='container'>
+        <h2 class="white question">
         ${question.question}
         </h2>
         <form class='the-form'>
@@ -134,6 +143,7 @@ let renderQuestion = function() {
             </label>
           </feildset>
           <button class="submit" type="submit">Submit</button>
-        </form>`
+        </form>
+      </div>`
   );
 };

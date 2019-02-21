@@ -5,7 +5,7 @@ header {
 }
 
 .startover {
-  width: 10%;
+  width: 20%;
   margin-right: auto;
   margin-left: auto;
 }
@@ -24,6 +24,7 @@ button.submit {
 header>img {
   width: 20%;
   height: auto;
+  border-radius: 10px;
 }
 
 .title {
@@ -35,12 +36,15 @@ header>img {
   color: rgb(23, 114, 167)
 }
 
-h1, h2, p, img {
+.white {
+  text-align: center;
   background-color: white;
   border-radius: 10px;
 }
 
-.quiz {}
+body {
+  z-index: 2;
+}
 
 .enter {
   margin-left: auto;
@@ -82,9 +86,8 @@ input:checked {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  background-color: gray;
-  color: white;
-  text-shadow: 2px 2px 5px black;
+  color: rgb(23, 114, 167);
+  text-shadow: 1px 1px lightgray;
   font-weight: bold;
 }
 
@@ -92,13 +95,20 @@ input:checked {
   display: none;
 }
 
+.bottom {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border-radius: 10px;
+}
+
 .answerChoice:hover {
   background-image: url(https://static.evo.com/assetimages/features/k2-snowboard/2016/k2-wh4-core.png);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 320px) {
 
   /* mobile-ready */
   .question {
