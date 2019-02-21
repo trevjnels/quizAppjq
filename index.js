@@ -1,115 +1,139 @@
-function jqueryRunner() {
-  let currentQuestion = 0;
-  let currentScore = 0;
+let currentQuestion = 0;
+let currentScore = 0;
 
-  $(".answers").on("submit", function(e) {
-    e.preventDefault();
+let quizBuilder = function(database) {
+  //this takes in the STORE database and creates a random array of indexes to pull questions from
+  //this way we use 10 questions total but only show a random 5 in a random order
+  var quizResult = [];
+
+  var i = 5;
+  var indexArr = [];
+  while (i > 0) {
+    var num = Math.floor(Math.random() * 10);
+    if (indexArr.indexOf(num) === -1) {
+      indexArr.push(num);
+      i--;
+    }
+  }
+  indexArr.forEach(function(index) {
+    quizResult.push(database[index]);
   });
 
-  console.log("jquery is running!");
-  console.log("current question =  ", currentQuestion);
+  return quizResult;
+};
+var quiz = quizBuilder(STORE);
 
-  // $(".answer-select").on("click", function(event) {
-  //
-  //   alert("button clicked");
-  // });
+$(".begin-button").on("click", function(ev) {
+  renderQuestion();
+  renderProgress();
+  $(".begin-button").hide();
+  $(".startover").show();
+});
 
-  function screenLoader() {
-    // repalces main element with next question of quiz. if we have not started yet
-    //it will load first
-    if (currentQuestion) {
-      console.log("showing quiz");
-      $(".quiz").show();
-      $(".enter").hide();
-    } else {
-      $(".quiz").hide();
-      $(".enter").show();
+$("body").on("submit", ".the-form", function(ev) {
+  ev.preventDefault();
+  let selectedAnswer = $("input[name=answer]:checked").val();
 
-      $(".enter > button").on("click", function() {
-        alert("enter button clicked!");
-        currentQuestion++;
-        questionRender();
-      });
+  if (correctChecker(selectedAnswer, currentQuestion)) {
+    backgroundCorrect(currentQuestion);
+    currentScore++;
+    currentQuestion++;
+  } else {
+    backgroundIncorrect();
+    currentQuestion++;
+  }
+  if (currentQuestion === 5) {
+    finalScreen(currentScore);
+  } else {
+    renderQuestion();
+    renderProgress(currentScore, currentQuestion);
+  }
+});
+
+let correctChecker = function(answer, questionNum) {
+  var correctAnswer = "";
+  var questionAnswerSet = quiz[questionNum].answers;
+  questionAnswerSet.forEach(function(ans) {
+    if (Object.values(ans).indexOf(true) === 1) {
+      correctAnswer = ans.text.split(" ")[0];
     }
-    console.log("current question =  ", currentQuestion);
+  });
+  return correctAnswer === answer;
+};
+let backgroundCorrect = function(questionNum) {
+  img = quiz[questionNum].img;
+  $("body").css("background-image", `url(${img})`);
+  $("body").css("background-size", "contain");
+  $("body").css("background-repeat", "no-repeat");
+};
+
+let backgroundIncorrect = function() {
+  $("body").css(
+    "background-image",
+    `url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX11986794.jpg)`
+  );
+  $("body").css("background-size", "contain");
+  $("body").css("background-repeat", "no-repeat");
+};
+let finalScreen = function(currentScore) {
+  $(".quiz-box").html(
+    `<h1>Your final results are:<h1><div><h2>Score: ${(currentScore / 5) *
+      100}%</h2></div>`
+  );
+  $("body").css(
+    "background-image",
+    `url(http://www.snowcrystals.com/branching/i0113a331A.jpg)`
+  );
+  $("body").css("background-size", "cover");
+  $("body").css("background-repeat", "no-repeat");
+};
+
+let renderProgress = function(score, stage) {
+  if (!score) {
+    score = "0";
   }
-
-  function questionRender() {
-    // goes into the questionArray (not stor) and renders the appropaite question to the .quiz class element
-    if (currentQuestion) {
-      var question = STORE[currentQuestion - 1];
-      console.log(question);
-      $(".quiz").replaceWith(
-        `<h2 class="question">
-          ${question.question}
-          </h2>
-          <form class="answers">
-            <feildset>
-              <label class="answerChoice">
-                <input type='radio' value=${
-                  question.answers[0].text
-                } name="answer required">
-                <span>${question.answers[0].text}</span>
-              </label>
-              <label class="answerChoice">
-                <input type='radio' value=${
-                  question.answers[1].text
-                } name="answer required">
-                <span>${question.answers[1].text}</span>
-              </label>
-              <label class="answerChoice">
-                <input type='radio' value=${
-                  question.answers[2].text
-                } name="answer required">
-                <span>${question.answers[2].text}</span>
-              </label>
-              <label class="answerChoice">
-                <input type='radio' value=${
-                  question.answers[3].text
-                } name="answer required">
-                <span>${question.answers[3].text}</span>
-              </label>
-              <button class="submitAnswer">Submit</button>
-            </feildset>
-          </form>`
-      );
-      currentQuestion++;
-    } else {
-      console.log("on begin screen");
-    }
+  if (!stage) {
+    stage = "0";
   }
+  $(".progress")
+    .html(`   <h2 class="score"><span>Score:</span><span class="currentScore"> ${score}</span></h2>
+      <h2 class="questionTrack"><span>Question:</span><span class="currentQuestion">  ${stage}/5</span></h2>`);
+};
+let renderQuestion = function() {
+  let question = quiz[currentQuestion];
 
-  function questionRandomizer(questions) {
-    //will randomize questions and load them into an array to display
-  }
-
-  function answerRandomizer(question) {
-    // shifts the answers around using randomness so the first one is not always corret
-  }
-
-  function answerListner() {
-    //this will listen for clicks on answers and call correctOrNot
-    $(".submitAnswer").on("submit", function(event) {
-      console.log("working");
-      event.preventDefault();
-    });
-  }
-  function correctOrNot() {}
-
-  function scoreUpdater() {
-    //updates users's score as they go
-  }
-
-  function questionCounter() {
-    //updates user's locaiton in the quiz
-  }
-
-  questionRender();
-  screenLoader();
-  answerListner();
-}
-
-$(jqueryRunner);
-
-// {/* <h2 class="score"><span>Score:</span><span class="currentScore"> 4</span></h2>
-// <h2 class="questionTrack"><span>Question:</span><span class="currentQuestion"> 5/8</span></h2> */}
+  $(".quiz-box").html(
+    `<h2 class="question">
+        ${question.question}
+        </h2>
+        <form class='the-form'>
+          <feildset>
+            <label class="answerChoice">
+              <input type='radio' value=${
+                question.answers[0].text
+              } name="answer" required >
+              <span>${question.answers[0].text}</span>
+            </label>
+            <label class="answerChoice">
+              <input type='radio' value=${
+                question.answers[1].text
+              } name="answer" required >
+              <span>${question.answers[1].text}</span>
+            </label>
+            <label class="answerChoice">
+              <input type='radio' value=${
+                question.answers[2].text
+              } name="answer" required >
+              <span>${question.answers[2].text}</span>
+            </label>
+            <label class="answerChoice">
+              <input type='radio' value=${
+                question.answers[3].text
+              } name="answer" required >
+              <span>${question.answers[3].text}</span>
+            </label>
+          </feildset>
+          <button class="submit" type="submit">Submit</button>
+        </form>`
+  );
+};

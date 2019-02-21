@@ -4,10 +4,10 @@ var STORE = [
       "who is the greatest skier in the world and is famous for making an entire ski video without snow?",
     questionNumber: 1,
     answers: [
-      { text: "Candid Thovex", correct: true },
       { text: "Travice Rice", correct: false },
       { text: "Angel Collinson", correct: false },
-      { text: "Tom Jones", correct: false }
+      { text: "Tom Jones", correct: false },
+      { text: "Candid Thovex", correct: true }
     ],
     img:
       "https://www.tetongravity.com/images/ci-images/55552/candide_thovex_ski__stream_hero.png"
@@ -17,8 +17,8 @@ var STORE = [
       "What state has two ski resorts that still do not allow snowboarding?",
     questionNumber: 2,
     answers: [
-      { text: "Utah", correct: true },
       { text: "Colorado", correct: false },
+      { text: "Utah", correct: true },
       { text: "Vermont", correct: false },
       { text: "Wyoming", correct: false }
     ],
@@ -53,34 +53,69 @@ var STORE = [
     question: "What major US city has the best access to the Steep and Deep?",
     questionNumber: 5,
     answers: [
-      { text: "Salt Lake City, Utah", correct: true },
       { text: "Denver", correct: false },
       { text: "Portland", correct: false },
+      { text: "Salt Lake City, Utah", correct: true },
       { text: "Seattle", correct: false }
     ],
     img: "https://admissions.utah.edu/international/_images/saltlakecity.png"
+  },
+  {
+    question: "What was the first ski resort in the US to allow snowbording?",
+    questionNumber: 6,
+    answers: [
+      { text: "Killington, Vermont", correct: false },
+      { text: "Brighton, Utah", correct: true },
+      { text: "Vail, Colorado", correct: false },
+      { text: "Taos, New Mexico", correct: false }
+    ],
+    img: "https://pbs.twimg.com/profile_images/547133020801495040/sJ-1T2JU.png"
+  },
+  {
+    question: "What Snowboard company makes the HoverCraft?",
+    questionNumber: 7,
+    answers: [
+      { text: "Burton", correct: false },
+      { text: "GNU", correct: false },
+      { text: "Forum", correct: false },
+      { text: "Jones", correct: true }
+    ],
+    img:
+      "http://coresites-cdn.factorymedia.com/whitelines_new/wp-content/uploads/2016/09/jones_hovercraft_snowboard_2016_2017_review_100_T__7739.jpg"
+  },
+  {
+    question: "What is cold smoke?",
+    questionNumber: 8,
+    answers: [
+      { text: "Clouds", correct: false },
+      { text: "Super light Snow coming off of a rider!", correct: true },
+      { text: "Skier/Snowboarder Breath", correct: false },
+      { text: "exhaust fumes", correct: false }
+    ],
+    img:
+      "https://montana-wild.com/wp-content/uploads/2014/02/facebook-2-1000x423.jpg"
+  },
+  {
+    question:
+      "What is it called when a skiier's equipment detaches from their body during a huge crash?",
+    questionNumber: 9,
+    answers: [
+      { text: "Sucker", correct: false },
+      { text: "Ka Pow", correct: false },
+      { text: "Yard Sale", correct: true },
+      { text: "Eject", correct: false }
+    ],
+    img: "https://cdn.powder.com/uploads/2015/07/yardsale.jpg"
+  },
+  {
+    question: "What is the most badass inbounds ski run in the USA",
+    questionNumber: 10,
+    answers: [
+      { text: "Challenger, Solitude", correct: false },
+      { text: "Tioga, Elk Mountian", correct: false },
+      { text: "Chickidee, Snowbird", correct: false },
+      { text: "Corbet's Couloir, Jackson Hole", correct: true }
+    ],
+    img: "https://cdn.powder.com/uploads/2018/02/Corbets_11.jpg"
   }
-  // ,{
-  //   question: "What was the first ski resort in the US to allow snowbording?",
-  //   questionNumber: 6,
-  //   answers: [
-  //     { text: "Brighton, Utah", correct: true },
-  //     { text: "Killington, Vermont", correct: false },
-  //     { text: "Vail, Colorado", correct: false },
-  //     { text: "Taos, New Mexico", correct: false }
-  //   ],
-  //   img: "https://pbs.twimg.com/profile_images/547133020801495040/sJ-1T2JU.png"
-  // },
-  // {
-  //   question: "What Snowboard company makes the HoverCraft?",
-  //   questionNumber: 7,
-  //   answers: [
-  //     { text: "Jones", correct: true },
-  //     { text: "Burton", correct: false },
-  //     { text: "GNU", correct: false },
-  //     { text: "Forum", correct: false }
-  //   ],
-  //   img:
-  //     "http://coresites-cdn.factorymedia.com/whitelines_new/wp-content/uploads/2016/09/jones_hovercraft_snowboard_2016_2017_review_100_T__7739.jpg"
-  // }
 ];
