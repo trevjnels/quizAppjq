@@ -23,11 +23,11 @@ let quizBuilder = function(database) {
 };
 var quiz = quizBuilder(STORE);
 
-$(".begin-button").on("click", function(ev) {
+$(".begin-button-js").on("click", function(ev) {
   $(".title > p").hide();
   renderQuestion();
   renderProgress(currentScore, currentQuestion);
-  $(".begin-button").hide();
+  $(".begin-button-js").hide();
 });
 
 $("body").on("submit", ".the-form", function(ev) {
@@ -121,25 +121,25 @@ let renderQuestion = function() {
               <input type='radio' value=${
                 question.answers[0].text
               } name="answer" required >
-              <span>${question.answers[0].text}</span>
+              <span class="answerText">${question.answers[0].text}</span>
             </label>
             <label class="answerChoice">
               <input type='radio' value=${
                 question.answers[1].text
               } name="answer" required >
-              <span>${question.answers[1].text}</span>
+              <span class="answerText">${question.answers[1].text}</span>
             </label>
             <label class="answerChoice">
               <input type='radio' value=${
                 question.answers[2].text
               } name="answer" required >
-              <span>${question.answers[2].text}</span>
+              <span class="answerText">${question.answers[2].text}</span>
             </label>
             <label class="answerChoice">
               <input type='radio' value=${
                 question.answers[3].text
               } name="answer" required >
-              <span>${question.answers[3].text}</span>
+              <span class="answerText">${question.answers[3].text}</span>
             </label>
           </feildset>
           <button class="submit" type="submit">Submit</button>

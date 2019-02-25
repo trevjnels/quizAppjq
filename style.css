@@ -5,9 +5,20 @@ header {
 }
 
 .startover {
-  width: 20%;
+  height: 40px;
   margin-right: auto;
   margin-left: auto;
+  display: none;
+  padding: 15%%;
+}
+
+.startoverButton {
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+  shadow: 2px 2px 2px black;
+  color: blue;
+  font-size: 24px;
 }
 
 button.submit {
@@ -91,10 +102,6 @@ input:checked {
   font-weight: bold;
 }
 
-.startover {
-  display: none;
-}
-
 .bottom {
   width: 100%;
   height: auto;
@@ -154,15 +161,27 @@ input:checked {
 
   /* computer */
   /* background color set only for responsive dev awareness */
+  header>img {
+    width: 10%;
+  }
+
+  .main {
+    margin-top: 1%;
+  }
+
   .main {
     width: 75%;
   }
 
-  .answer-select {
-    height: 75px;
+  .white, .question {
+    font-size: 40px;
+  }
+
+  .answerText {
+    font-size: 30px;
   }
 
   .answer-select {
-    font-size: 200%;
+    height: 200px;
   }
 }
