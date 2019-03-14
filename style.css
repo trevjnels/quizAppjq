@@ -75,7 +75,7 @@ div, form {
 .mainFinal {
   margin-top: 10vh;
   justify-content: space-around;
-  margin-right: 6.5vw;
+  margin-left: 6.5vw;
 }
 
 .startoverButton {
@@ -137,7 +137,7 @@ body {
   align-items: center;
   width: 80vw;
   height: 50vh;
-  margin-right: 6.5vw;
+  margin-left: 6vw;
 }
 
 .question {
