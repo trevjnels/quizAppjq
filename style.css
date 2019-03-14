@@ -1,3 +1,30 @@
+body {
+  border: 20px rgb(23, 114, 167) solid;
+  height: 93vh;
+}
+
+.p-response {
+  text-shadow: 2px 2px 2px white;
+  width: 50vw;
+}
+
+.red {
+  color: red;
+  text-shadow: 2px 2px 2px gray;
+}
+
+.response {
+  width: 100vw;
+}
+
+.image-response {
+  height: 30vh;
+  width: 30vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -7,7 +34,7 @@ header {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -27,7 +54,7 @@ div, form {
 }
 
 .begin-button-js:focus {
-  background-color: lightpink;
+  background-color: lightblue;
 }
 
 .begin-button-js:active {
@@ -75,7 +102,6 @@ div, form {
 .mainFinal {
   margin-top: 10vh;
   justify-content: space-around;
-  margin-left: 6.5vw;
 }
 
 .startoverButton {
@@ -88,13 +114,15 @@ div, form {
 }
 
 button.submit {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 100px;
-  width: auto;
-  height: auto;
-  font-size: 40px;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.nextContainer {
+  height: 30px;
+  padding-top: 5vh;
 }
 
 .nextButton {
@@ -106,7 +134,7 @@ button.submit {
 .the-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 55vh;
 }
@@ -137,12 +165,10 @@ body {
   align-items: center;
   width: 80vw;
   height: 50vh;
-  margin-left: 6vw;
 }
 
 .question {
   text-align: center;
-  border: 3px dotted red;
   border-radius: 10%;
   color: rgb(23, 114, 167);
 }
@@ -198,8 +224,26 @@ header {
 }
 
 @media screen and (min-width: 400px) {
-  * {
-    background-color: lightblue;
+  .progressBar {
+    font-size: 1.2em;
+  }
+
+  button.submit {
+    font-size: 40px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(23, 114, 167);
+    align-self: center;
+  }
+
+  body {
+    justify-content: space-around;
+    border: 40px rgb(23, 114, 167) solid;
+    height: 95vh;
+  }
+
+  .white.question, .answerText {
+    font-size: 1.3em;
   }
 
   /* tablet */
@@ -207,8 +251,16 @@ header {
 }
 
 @media screen and (min-width: 769px) {
-  * {
-    background-color: lightgreen;
+  body {
+    justify-content: space-around;
+  }
+
+  header>img {
+    width: 30%;
+  }
+
+  .white.question, .answerText, .p-response {
+    font-size: 1.6em;
   }
 
   /* computer */
