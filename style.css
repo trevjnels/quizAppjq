@@ -18,8 +18,8 @@ body {
 }
 
 .image-response {
-  height: 10vh;
-  width: 10vh;
+  height: 15vh;
+  width: 15vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -123,6 +123,7 @@ button.submit {
 .nextContainer {
   height: 30px;
   padding-top: 5vh;
+  padding-bottom: 2vh;
 }
 
 .nextButton {
